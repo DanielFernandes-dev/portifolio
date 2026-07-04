@@ -2,6 +2,11 @@ export default function Hero() {
   return (
     <section className="relative min-h-[921px] flex items-center justify-center overflow-hidden px-gutter">
       <div className="relative z-10 text-center max-w-4xl mx-auto">
+        <img
+          src="https://avatars.githubusercontent.com/u/239253498?v=4"
+          alt="Daniel Fernandes"
+          className="w-28 h-28 md:w-36 md:h-36 rounded-full mx-auto mb-6 border-2 border-primary/50"
+        />
         <h1 className="text-display-lg-mobile md:text-display-lg mb-4 text-on-surface">
           Daniel Fernandes
         </h1>
