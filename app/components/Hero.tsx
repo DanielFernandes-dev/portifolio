@@ -6,7 +6,7 @@ export default function Hero() {
           Daniel Fernandes
         </h1>
         <p className="font-code-sm text-code-sm text-secondary tracking-widest uppercase mb-8">
-          Estudante de Programação | JavaScript • TypeScript • Python • React
+          Estudante de Programação | JavaScript • TypeScript • React
         </p>
         <p className="font-body-base text-body-base text-on-surface-variant mb-12 max-w-2xl mx-auto">
           Ainda aprendendo a programar. Construindo projetos para evoluir como desenvolvedor, explorando front-end, back-end e tudo que envolve criar soluções com tecnologia.

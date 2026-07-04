@@ -10,8 +10,8 @@ const projects = [
   },
   {
     title: "redator",
-    description: "Editor de texto simples para web com JavaScript, Python e HTML.",
-    tags: ["JavaScript", "Python", "HTML"],
+    description: "Editor de texto simples para web com JavaScript e HTML.",
+    tags: ["JavaScript", "HTML"],
     url: "https://github.com/DanielFernandes-dev/redator",
     span: "md:col-span-6",
   },

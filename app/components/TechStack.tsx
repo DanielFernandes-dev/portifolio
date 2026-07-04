@@ -1,7 +1,7 @@
 const stacks = [
   { icon: "deployed_code", name: "Frontend", tech: "React, Next.js, Tailwind" },
-  { icon: "dns", name: "Backend", tech: "Node.js, Python" },
-  { icon: "code", name: "Linguagens", tech: "JavaScript, TypeScript, Python" },
+  { icon: "dns", name: "Backend", tech: "Node.js" },
+  { icon: "code", name: "Linguagens", tech: "JavaScript, TypeScript" },
   { icon: "web", name: "Web", tech: "HTML, CSS, DOM API" },
   { icon: "neurology", name: "Aprendendo", tech: "Firebase, APIs REST" },
   { icon: "construction", name: "Ferramentas", tech: "Git, VS Code, Figma" },

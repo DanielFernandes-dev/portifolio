@@ -5,7 +5,7 @@ export default function AboutStats() {
         <div className="lg:col-span-7 glass-panel p-8 md:p-12 rounded-xl">
           <h2 className="text-headline-md mb-6 text-primary">Aprendendo a Programar</h2>
           <p className="font-body-base text-body-base text-on-surface-variant mb-6">
-            Comecei minha jornada na programação em outubro de 2025 e desde então venho explorando diferentes áreas: desenvolvimento web com React e Next.js, automação com Python, e criação de projetos práticos para consolidar o aprendizado. Meu objetivo é evoluir constantemente, um commit de cada vez.
+            Comecei minha jornada na programação em outubro de 2025 e desde então venho explorando desenvolvimento web com React e Next.js, além de criar projetos práticos para consolidar o aprendizado. Meu objetivo é evoluir constantemente, um commit de cada vez.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-white/5">
             <div>
@@ -34,7 +34,7 @@ export default function AboutStats() {
                 { lang: "HTML", width: "26%", color: "bg-secondary" },
                 { lang: "CSS", width: "17%", color: "bg-tertiary" },
                 { lang: "JavaScript", width: "15%", color: "bg-primary-container" },
-                { lang: "Python", width: "6%", color: "bg-secondary-container" },
+
               ].map((item) => (
                 <div key={item.lang} className="flex justify-between items-center">
                   <span className="font-code-sm text-code-sm">{item.lang}</span>

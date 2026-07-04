@@ -19,7 +19,7 @@ const events = [
     year: "2025",
     title: "Início nos Estudos",
     subtitle: "Primeiros passos",
-    description: "Criação da conta no GitHub e início da jornada na programação com Python e JavaScript.",
+    description: "Criação da conta no GitHub e início da jornada na programação com JavaScript.",
     align: "left",
     dotColor: "bg-outline",
   },
