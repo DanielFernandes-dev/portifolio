@@ -3,13 +3,13 @@ export default function AboutStats() {
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-7 glass-panel p-8 md:p-12 rounded-xl">
-          <h2 className="text-headline-md mb-6 text-primary">Aprendendo a Programar</h2>
+          <h2 className="text-headline-md mb-6 text-primary">Primeiros Passos</h2>
           <p className="font-body-base text-body-base text-on-surface-variant mb-6">
-            Comecei minha jornada na programação em outubro de 2025 e desde então venho explorando desenvolvimento web com React e Next.js, além de criar projetos práticos para consolidar o aprendizado. Meu objetivo é evoluir constantemente, um commit de cada vez.
+            Comecei a programar há cerca de 2 meses e estou explorando desenvolvimento web com HTML, CSS, JavaScript e React. Cada projeto que construo é um passo para evoluir como desenvolvedor.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-white/5">
             <div>
-              <span className="block text-headline-md text-secondary">{new Date().getFullYear() - 2025} Ano</span>
+              <span className="block text-headline-md text-secondary">2 Meses</span>
               <span className="font-label-caps text-label-caps text-outline">Estudando</span>
             </div>
             <div>
