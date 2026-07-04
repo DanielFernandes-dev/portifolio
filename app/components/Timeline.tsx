@@ -62,7 +62,7 @@ export default function Timeline() {
       </div>
       <div className="text-center mt-12">
         <a
-          href="https://github.com/DanielFernandes-dev/diario-do-dev.git"
+          href="https://diario-do-dev.web.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="glass-panel inline-flex items-center gap-3 px-6 py-4 rounded-xl text-on-surface hover:bg-surface-container-high transition-all font-body-base"
