@@ -6,9 +6,8 @@ const navLinks = [
 export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md border-b border-white/10">
-      <div className="flex justify-between items-center max-w-[1280px] mx-auto px-gutter h-16">
-        <span className="text-headline-md font-bold text-primary">Daniel Fernandes</span>
-        <div className="hidden md:flex gap-6 items-center">
+      <div className="flex justify-center items-center max-w-[1280px] mx-auto px-gutter h-16">
+        <div className="flex gap-6 items-center">
           {navLinks.map((link) => (
             <a
               key={link.href}
