@@ -12,15 +12,20 @@ export default function Hero() {
           Ainda aprendendo a programar. Construindo projetos para evoluir como desenvolvedor, explorando front-end, back-end e tudo que envolve criar soluções com tecnologia.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <button className="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all">
+          <a
+            href="#projects"
+            className="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all inline-block"
+          >
             Ver Projetos
-          </button>
-          <button className="glass-panel text-on-surface px-8 py-3 rounded-lg font-bold hover:bg-surface-container-high transition-all">
+          </a>
+          <a
+            href="https://github.com/DanielFernandes-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-panel text-on-surface px-8 py-3 rounded-lg font-bold hover:bg-surface-container-high transition-all inline-block"
+          >
             GitHub
-          </button>
-          <button className="border border-primary/30 text-primary px-8 py-3 rounded-lg font-bold hover:bg-primary/10 transition-all">
-            Currículo
-          </button>
+          </a>
         </div>
       </div>
     </section>
