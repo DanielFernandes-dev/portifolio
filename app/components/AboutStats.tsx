@@ -9,11 +9,11 @@ export default function AboutStats() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-white/5">
             <div>
-              <span className="block text-headline-md text-secondary">{new Date().getFullYear() - 2025} Anos</span>
+              <span className="block text-headline-md text-secondary">{new Date().getFullYear() - 2025} Ano</span>
               <span className="font-label-caps text-label-caps text-outline">Estudando</span>
             </div>
             <div>
-              <span className="block text-headline-md text-secondary">10</span>
+              <span className="block text-headline-md text-secondary">5</span>
               <span className="font-label-caps text-label-caps text-outline">Repositórios</span>
             </div>
             <div>
@@ -30,10 +30,11 @@ export default function AboutStats() {
             </div>
             <div className="space-y-4">
               {[
-                { lang: "JavaScript", width: "40%", color: "bg-primary" },
-                { lang: "TypeScript", width: "30%", color: "bg-secondary" },
-                { lang: "Python", width: "20%", color: "bg-tertiary" },
-                { lang: "HTML/CSS", width: "10%", color: "bg-primary-container" },
+                { lang: "TypeScript", width: "35%", color: "bg-primary" },
+                { lang: "HTML", width: "26%", color: "bg-secondary" },
+                { lang: "CSS", width: "17%", color: "bg-tertiary" },
+                { lang: "JavaScript", width: "15%", color: "bg-primary-container" },
+                { lang: "Python", width: "6%", color: "bg-secondary-container" },
               ].map((item) => (
                 <div key={item.lang} className="flex justify-between items-center">
                   <span className="font-code-sm text-code-sm">{item.lang}</span>

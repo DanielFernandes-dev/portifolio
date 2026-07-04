@@ -2,67 +2,39 @@ import Link from "next/link"
 
 const projects = [
   {
-    title: "blog_beta",
-    description: "Blog em TypeScript com suporte a GitHub Pages.",
-    tags: ["TypeScript", "GitHub Pages"],
-    url: "https://github.com/DanielFernandes-dev/blog_beta",
-    image: null,
+    title: "lotofacil_app",
+    description: "Aplicativo para análise de resultados da Lotofácil, construído com TypeScript.",
+    tags: ["TypeScript", "CSS", "HTML"],
+    url: "https://github.com/DanielFernandes-dev/lotofacil_app",
     span: "md:col-span-6",
-    height: "flex-col",
+  },
+  {
+    title: "redator",
+    description: "Editor de texto simples para web com JavaScript, Python e HTML.",
+    tags: ["JavaScript", "Python", "HTML"],
+    url: "https://github.com/DanielFernandes-dev/redator",
+    span: "md:col-span-6",
   },
   {
     title: "site-html",
     description: "Site desenvolvido com HTML puro, publicado via GitHub Pages.",
-    tags: ["HTML", "CSS"],
+    tags: ["HTML"],
     url: "https://github.com/DanielFernandes-dev/site-html",
-    image: null,
-    span: "md:col-span-6",
-    height: "flex-col",
-  },
-  {
-    title: "FoodBlog React",
-    description: "Blog de receitas desenvolvido com React e JavaScript.",
-    tags: ["React", "JavaScript"],
-    url: "https://github.com/DanielFernandes-dev/foodblog-react",
-    image: null,
     span: "md:col-span-4",
-    height: "flex-col",
   },
   {
-    title: "Lotofácil App",
-    description: "Aplicativo para análise da Lotofácil usando TypeScript.",
-    tags: ["TypeScript"],
-    url: "https://github.com/DanielFernandes-dev/lotofacil_app",
-    image: null,
+    title: "teste-react",
+    description: "Projeto de teste com React, foco em estilização CSS.",
+    tags: ["CSS", "JavaScript", "React"],
+    url: "https://github.com/DanielFernandes-dev/teste-react",
     span: "md:col-span-4",
-    height: "flex-col",
   },
   {
-    title: "Projeto Python",
-    description: "Projeto de estudos em Python para automação e análise.",
-    tags: ["Python"],
-    url: "https://github.com/DanielFernandes-dev/projeto-python",
-    image: null,
+    title: "portifolio",
+    description: "Este portfólio — Next.js + Tailwind CSS v4 + Firebase Hosting.",
+    tags: ["TypeScript", "Next.js", "Tailwind"],
+    url: "https://github.com/DanielFernandes-dev/portifolio",
     span: "md:col-span-4",
-    height: "flex-col",
-  },
-  {
-    title: "redator",
-    description: "Editor de texto simples para web, com foco em JavaScript.",
-    tags: ["JavaScript"],
-    url: "https://github.com/DanielFernandes-dev/redator",
-    image: null,
-    span: "md:col-span-6",
-    height: "flex-row items-center min-h-[120px]",
-  },
-  {
-    title: "novel_web",
-    description: "Plataforma web para leitura de novelas em TypeScript.",
-    tags: ["TypeScript"],
-    url: "https://github.com/DanielFernandes-dev/novel_web",
-    image: null,
-    span: "md:col-span-6",
-    height: "flex-row items-center min-h-[120px]",
   },
 ]
 
@@ -88,28 +60,26 @@ export default function Projects() {
             href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${p.span} group relative rounded-xl overflow-hidden glass-panel ${p.height} border border-white/10 hover:border-primary/40 transition-all`}
+            className={`${p.span} group relative rounded-xl overflow-hidden glass-panel flex-col border border-white/10 hover:border-primary/40 transition-all p-6 bg-surface-container/90 backdrop-blur-md`}
           >
-            <div className="p-6 bg-surface-container/90 backdrop-blur-md flex-1 flex flex-col justify-center">
-              <div className="flex justify-between items-start mb-3">
-                <h3 className="text-headline-md text-on-surface group-hover:text-primary transition-colors">
-                  {p.title}
-                </h3>
-                <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">
-                  open_in_new
+            <div className="flex justify-between items-start mb-3">
+              <h3 className="text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                {p.title}
+              </h3>
+              <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">
+                open_in_new
+              </span>
+            </div>
+            <p className="font-body-base text-sm text-on-surface-variant mb-3 flex-1">{p.description}</p>
+            <div className="flex gap-2 flex-wrap">
+              {p.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-2 py-1 bg-primary/10 border border-primary/30 text-primary text-[10px] font-code-sm rounded"
+                >
+                  {tag}
                 </span>
-              </div>
-              <p className="font-body-base text-sm text-on-surface-variant mb-3">{p.description}</p>
-              <div className="flex gap-2 flex-wrap">
-                {p.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 bg-primary/10 border border-primary/30 text-primary text-[10px] font-code-sm rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              ))}
             </div>
           </a>
         ))}
