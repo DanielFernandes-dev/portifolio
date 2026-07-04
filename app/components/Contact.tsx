@@ -12,11 +12,11 @@ export default function Contact() {
             Disponível para novos projetos desafiadores e parcerias estratégicas.
           </p>
           <div className="space-y-6">
-            <Link href="mailto:contato@joaosilva.dev" className="flex items-center gap-4 group">
+            <Link href="mailto:contato@danielfernandes.dev" className="flex items-center gap-4 group">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
                 <span className="material-symbols-outlined">mail</span>
               </div>
-              <span className="font-code-sm">contato@joaosilva.dev</span>
+              <span className="font-code-sm">contato@danielfernandes.dev</span>
             </Link>
             <Link href="#" className="flex items-center gap-4 group">
               <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">

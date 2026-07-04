@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md border-b border-white/10">
       <div className="flex justify-between items-center max-w-[1280px] mx-auto px-gutter h-16">
-        <span className="text-headline-md font-bold text-primary">DevPortfolio v2.6</span>
+        <span className="text-headline-md font-bold text-primary">Daniel Fernandes</span>
         <div className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
             <Link

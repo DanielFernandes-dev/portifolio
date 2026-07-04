@@ -1,16 +1,16 @@
 const stacks = [
   { icon: "deployed_code", name: "Frontend", tech: "React, Next.js, Tailwind" },
-  { icon: "dns", name: "Backend", tech: "Node.js, Go, GraphQL" },
-  { icon: "database", name: "DB", tech: "PostgreSQL, Redis, MongoDB" },
-  { icon: "cloud", name: "Cloud", tech: "AWS, Vercel, Docker" },
-  { icon: "neurology", name: "AI", tech: "OpenAI SDK, LangChain" },
-  { icon: "construction", name: "Tools", tech: "Git, Figma, Postman" },
+  { icon: "dns", name: "Backend", tech: "Node.js, Python" },
+  { icon: "code", name: "Linguagens", tech: "JavaScript, TypeScript, Python" },
+  { icon: "web", name: "Web", tech: "HTML, CSS, DOM API" },
+  { icon: "neurology", name: "Aprendendo", tech: "Firebase, APIs REST" },
+  { icon: "construction", name: "Ferramentas", tech: "Git, VS Code, Figma" },
 ]
 
 export default function TechStack() {
   return (
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap">
-      <h2 className="text-headline-md mb-12 text-center text-on-surface">Ecosystem Stack</h2>
+        <h2 className="text-headline-md mb-12 text-center text-on-surface">Tecnologias</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {stacks.map((s) => (
           <div

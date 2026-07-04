@@ -1,25 +1,25 @@
 const events = [
   {
     year: "2026",
-    title: "Senior Developer",
-    subtitle: "Tech Architect @ Global AI",
-    description: "Liderando a migração para infraestrutura edge e integração nativa de IA em escala global.",
+    title: "Portfólio + Firebase",
+    subtitle: "Publicação no Firebase Hosting",
+    description: "Criação deste portfólio com Next.js + Tailwind v4, deploy automatizado no Firebase Hosting.",
     align: "left",
     dotColor: "bg-secondary",
   },
   {
-    year: "2024",
-    title: "Full Stack Dev",
-    subtitle: "SaaS Product Engineer",
-    description: "Desenvolvimento end-to-end de soluções em tempo real utilizando WebSockets e Rust.",
+    year: "2026",
+    title: "Projetos em React",
+    subtitle: "FoodBlog e estudos",
+    description: "Primeiros projetos com React e TypeScript, explorando componentes e SPA.",
     align: "right",
     dotColor: "bg-primary",
   },
   {
-    year: "2023",
-    title: "Junior Dev",
-    subtitle: "Start-up Experience",
-    description: "Início na jornada React/Node, entregando MVPs ágeis e escaláveis.",
+    year: "2025",
+    title: "Início nos Estudos",
+    subtitle: "Primeiros passos",
+    description: "Criação da conta no GitHub e início da jornada na programação com Python e JavaScript.",
     align: "left",
     dotColor: "bg-outline",
   },
@@ -28,7 +28,7 @@ const events = [
 export default function Timeline() {
   return (
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap" id="timeline">
-      <h2 className="text-headline-md mb-16 text-center text-primary">Trajetória Evolutiva</h2>
+      <h2 className="text-headline-md mb-16 text-center text-primary">Minha Jornada</h2>
       <div className="relative max-w-3xl mx-auto">
         <div className="absolute left-1/2 -translate-x-1/2 h-full w-[2px] bg-surface-container-high" />
         {events.map((e) => (

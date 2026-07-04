@@ -3,36 +3,37 @@ export default function AboutStats() {
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-7 glass-panel p-8 md:p-12 rounded-xl">
-          <h2 className="text-headline-md mb-6 text-primary">Engenharia com Propósito</h2>
+          <h2 className="text-headline-md mb-6 text-primary">Aprendendo a Programar</h2>
           <p className="font-body-base text-body-base text-on-surface-variant mb-6">
-            Minha abordagem combina o rigor da arquitetura limpa com a agilidade do desenvolvimento orientado a produtos. Acredito que código escalável não é apenas sobre lidar com tráfego, mas sobre manter a manutenibilidade e a felicidade do time a longo prazo.
+            Comecei minha jornada na programação em outubro de 2025 e desde então venho explorando diferentes áreas: desenvolvimento web com React e Next.js, automação com Python, e criação de projetos práticos para consolidar o aprendizado. Meu objetivo é evoluir constantemente, um commit de cada vez.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-white/5">
             <div>
-              <span className="block text-headline-md text-secondary">+4 Anos</span>
-              <span className="font-label-caps text-label-caps text-outline">Experiência</span>
+              <span className="block text-headline-md text-secondary">{new Date().getFullYear() - 2025} Anos</span>
+              <span className="font-label-caps text-label-caps text-outline">Estudando</span>
             </div>
             <div>
-              <span className="block text-headline-md text-secondary">150+</span>
-              <span className="font-label-caps text-label-caps text-outline">Commits/mês</span>
+              <span className="block text-headline-md text-secondary">10</span>
+              <span className="font-label-caps text-label-caps text-outline">Repositórios</span>
             </div>
             <div>
-              <span className="block text-headline-md text-secondary">24/7</span>
-              <span className="font-label-caps text-label-caps text-outline">Uptime Mindset</span>
+              <span className="block text-headline-md text-secondary">Em andamento</span>
+              <span className="font-label-caps text-label-caps text-outline">Aprendizado</span>
             </div>
           </div>
         </div>
         <div className="lg:col-span-5 space-y-6">
           <div className="glass-panel p-6 rounded-xl">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="font-label-caps text-label-caps text-primary">GitHub Overview</h3>
+              <h3 className="font-label-caps text-label-caps text-primary">Linguagens</h3>
               <span className="material-symbols-outlined text-secondary">query_stats</span>
             </div>
             <div className="space-y-4">
               {[
-                { lang: "TypeScript", width: "85%", color: "bg-primary" },
-                { lang: "Rust", width: "45%", color: "bg-secondary" },
-                { lang: "Python", width: "30%", color: "bg-tertiary" },
+                { lang: "JavaScript", width: "40%", color: "bg-primary" },
+                { lang: "TypeScript", width: "30%", color: "bg-secondary" },
+                { lang: "Python", width: "20%", color: "bg-tertiary" },
+                { lang: "HTML/CSS", width: "10%", color: "bg-primary-container" },
               ].map((item) => (
                 <div key={item.lang} className="flex justify-between items-center">
                   <span className="font-code-sm text-code-sm">{item.lang}</span>
@@ -50,8 +51,8 @@ export default function AboutStats() {
               </span>
             </div>
             <div>
-              <p className="font-label-caps text-label-caps text-outline">Latest Activity</p>
-              <p className="font-body-base text-body-base">Refactored Auth Service using Redis</p>
+              <p className="font-label-caps text-label-caps text-outline">Último Projeto</p>
+              <p className="font-body-base text-body-base">Criado portfólio com Next.js + Firebase</p>
             </div>
           </div>
         </div>

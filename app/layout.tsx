@@ -13,10 +13,10 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "João Silva | Portfolio",
+  title: "Daniel Fernandes | Portfolio",
   description:
-    "Arquiteto de software focado em performance e interfaces intuitivas. Transformando lógica complexa em experiências digitais fluidas.",
-  keywords: ["portfolio", "developer", "full stack", "react", "node", "firebase", "ai"],
+    "Aprendendo a programar e construindo projetos com JavaScript, TypeScript, Python e React.",
+  keywords: ["portfolio", "developer", "javascript", "typescript", "python", "react", "nextjs"],
 }
 
 export default function RootLayout({
