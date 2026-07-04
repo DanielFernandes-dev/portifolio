@@ -8,7 +8,6 @@ import AboutStats from "@/app/components/AboutStats"
 import TechStack from "@/app/components/TechStack"
 import Projects from "@/app/components/Projects"
 import Timeline from "@/app/components/Timeline"
-import Contact from "@/app/components/Contact"
 import Footer from "@/app/components/Footer"
 
 export default function Home() {
@@ -39,7 +38,6 @@ export default function Home() {
         <TechStack />
         <Projects />
         <Timeline />
-        <Contact />
       </main>
       <Footer />
     </>
