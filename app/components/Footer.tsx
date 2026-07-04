@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-surface-container-lowest border-t border-white/10 mt-stack-gap py-12">
+    <footer id="footer" className="bg-surface-container-lowest border-t border-white/10 mt-stack-gap py-12">
       <div className="max-w-[1280px] mx-auto px-gutter">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>

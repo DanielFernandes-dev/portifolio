@@ -14,14 +14,14 @@ export default function Hero() {
           Estudante de Programação | JavaScript • TypeScript • React
         </p>
         <p className="font-body-base text-body-base text-on-surface-variant mb-12 max-w-2xl mx-auto">
-          Ainda aprendendo a programar. Construindo projetos para evoluir como desenvolvedor, explorando front-end, back-end e tudo que envolve criar soluções com tecnologia.
+          Comecei minha jornada em programação há 2 meses e já construí projetos reais com React, TypeScript e Next.js. Cada repositório no GitHub reflete um passo concreto no aprendizado. Conheça meu trabalho.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="#projects"
             className="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all inline-block"
           >
-            Ver Projetos
+            Explorar Projetos
           </a>
           <a
             href="https://github.com/DanielFernandes-dev"
@@ -30,6 +30,12 @@ export default function Hero() {
             className="glass-panel text-on-surface px-8 py-3 rounded-lg font-bold hover:bg-surface-container-high transition-all inline-block"
           >
             GitHub
+          </a>
+          <a
+            href="#footer"
+            className="glass-panel text-on-surface px-8 py-3 rounded-lg font-bold hover:bg-surface-container-high transition-all inline-block"
+          >
+            Entrar em Contato
           </a>
         </div>
       </div>

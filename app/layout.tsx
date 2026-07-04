@@ -12,11 +12,53 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 })
 
+const siteUrl = "https://daniel-fernandes-dev.web.app"
+
 export const metadata: Metadata = {
-  title: "Daniel Fernandes | Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: "Daniel Fernandes | Portfólio — Desenvolvedor em Formação",
   description:
-    "Aprendendo a programar e construindo projetos com JavaScript, TypeScript e React.",
-  keywords: ["portfolio", "developer", "javascript", "typescript", "react", "nextjs"],
+    "Conheça meus projetos e minha jornada como desenvolvedor. HTML, CSS, JavaScript, TypeScript, React e Next.js.",
+  keywords: [
+    "Daniel Fernandes",
+    "portfólio",
+    "desenvolvedor",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "programador iniciante",
+  ],
+  authors: [{ name: "Daniel Fernandes" }],
+  creator: "Daniel Fernandes",
+  openGraph: {
+    title: "Daniel Fernandes | Portfólio",
+    description:
+      "Conheça meus projetos e minha jornada como desenvolvedor. HTML, CSS, JavaScript, TypeScript, React e Next.js.",
+    url: siteUrl,
+    siteName: "Daniel Fernandes Portfólio",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://avatars.githubusercontent.com/u/239253498?v=4",
+        width: 460,
+        height: 460,
+        alt: "Daniel Fernandes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Daniel Fernandes | Portfólio",
+    description:
+      "Conheça meus projetos e minha jornada como desenvolvedor.",
+    images: ["https://avatars.githubusercontent.com/u/239253498?v=4"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -27,10 +69,23 @@ export default function RootLayout({
   return (
     <html lang="pt" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Daniel Fernandes",
+              url: siteUrl,
+              image: "https://avatars.githubusercontent.com/u/239253498?v=4",
+              sameAs: ["https://github.com/DanielFernandes-dev"],
+              knowsAbout: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+            }),
+          }}
         />
       </head>
       <body className="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
