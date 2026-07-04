@@ -65,7 +65,7 @@ export default function Timeline() {
           href="https://diario-do-dev.web.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-panel inline-flex items-center gap-3 px-6 py-4 rounded-xl text-on-surface hover:bg-surface-container-high transition-all font-body-base"
+          className="glass-panel inline-flex items-center gap-4 px-6 py-4 rounded-xl text-on-surface hover:bg-surface-container-high transition-all font-body-base"
         >
           <span className="material-symbols-outlined text-secondary">book</span>
           Diário do Dev — acompanhe minha evolução

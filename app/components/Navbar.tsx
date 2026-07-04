@@ -21,7 +21,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <button className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" aria-label="Language">
             language
           </button>
