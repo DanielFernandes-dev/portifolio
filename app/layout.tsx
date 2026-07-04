@@ -27,10 +27,19 @@ export const metadata: Metadata = {
     "Next.js",
     "TypeScript",
     "JavaScript",
+    "HTML",
+    "CSS",
     "programador iniciante",
+    "desenvolvimento web",
+    "front-end",
+    "Firebase",
+    "GitHub",
   ],
   authors: [{ name: "Daniel Fernandes" }],
   creator: "Daniel Fernandes",
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     title: "Daniel Fernandes | Portfólio",
     description:
@@ -78,12 +87,83 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Daniel Fernandes",
-              url: siteUrl,
-              image: "https://avatars.githubusercontent.com/u/239253498?v=4",
-              sameAs: ["https://github.com/DanielFernandes-dev"],
-              knowsAbout: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+              "@graph": [
+                {
+                  "@type": "Person",
+                  name: "Daniel Fernandes",
+                  url: siteUrl,
+                  image: "https://avatars.githubusercontent.com/u/239253498?v=4",
+                  sameAs: ["https://github.com/DanielFernandes-dev"],
+                  knowsAbout: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+                },
+                {
+                  "@type": "WebSite",
+                  url: siteUrl,
+                  name: "Daniel Fernandes Portfólio",
+                  description:
+                    "Portfólio pessoal com projetos e jornada como desenvolvedor.",
+                  inLanguage: "pt-BR",
+                },
+                {
+                  "@type": "ItemList",
+                  name: "Projetos no GitHub",
+                  description: "Repositórios públicos de Daniel Fernandes",
+                  url: `${siteUrl}/#projects`,
+                  numberOfItems: 5,
+                  itemListElement: [
+                    {
+                      "@type": "ListItem",
+                      position: 1,
+                      item: {
+                        "@type": "SoftwareSourceCode",
+                        name: "lotofacil_app",
+                        url: "https://github.com/DanielFernandes-dev/lotofacil_app",
+                        programmingLanguage: "TypeScript",
+                      },
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 2,
+                      item: {
+                        "@type": "SoftwareSourceCode",
+                        name: "redator",
+                        url: "https://github.com/DanielFernandes-dev/redator",
+                        programmingLanguage: "JavaScript",
+                      },
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 3,
+                      item: {
+                        "@type": "SoftwareSourceCode",
+                        name: "site-html",
+                        url: "https://github.com/DanielFernandes-dev/site-html",
+                        programmingLanguage: "HTML",
+                      },
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 4,
+                      item: {
+                        "@type": "SoftwareSourceCode",
+                        name: "teste-react",
+                        url: "https://github.com/DanielFernandes-dev/teste-react",
+                        programmingLanguage: "JavaScript",
+                      },
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 5,
+                      item: {
+                        "@type": "SoftwareSourceCode",
+                        name: "portifolio",
+                        url: "https://github.com/DanielFernandes-dev/portifolio",
+                        programmingLanguage: "TypeScript",
+                      },
+                    },
+                  ],
+                },
+              ],
             }),
           }}
         />
