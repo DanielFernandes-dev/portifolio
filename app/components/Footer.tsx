@@ -37,6 +37,15 @@ export default function Footer() {
               <span className="material-symbols-outlined text-sm">code</span>
               GitHub
             </a>
+            <a
+              href="https://chronokairo.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 font-code-sm text-code-sm text-on-surface-variant hover:text-secondary transition-colors"
+            >
+              <span className="material-symbols-outlined text-sm">business</span>
+              Chronokairo
+            </a>
           </div>
         </div>
       </div>

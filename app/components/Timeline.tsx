@@ -1,64 +1,95 @@
-const events = [
-  {
-    year: "2026",
-    title: "Portfólio + Firebase",
-    subtitle: "Publicação no Firebase Hosting",
-    description: "Criação deste portfólio com Next.js + Tailwind v4, deploy automatizado no Firebase Hosting.",
-    align: "left",
-    dotColor: "bg-secondary",
-  },
-  {
-    year: "2026",
-    title: "Projetos em React",
-    subtitle: "FoodBlog e estudos",
-    description: "Primeiros projetos com React e TypeScript, explorando componentes e SPA.",
-    align: "right",
-    dotColor: "bg-primary",
-  },
-  {
-    year: "2025",
-    title: "Início nos Estudos",
-    subtitle: "Primeiros passos",
-    description: "Criação da conta no GitHub e início da jornada na programação com JavaScript.",
-    align: "left",
-    dotColor: "bg-outline",
-  },
+"use client"
+
+import { useState, useEffect } from "react"
+
+const GITHUB_USER = "DanielFernandes-dev"
+const REPOS = ["lotofacil_app", "redator", "site-html", "teste-react", "portifolio"]
+
+const MONTHS_PT = [
+  "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro",
 ]
 
+function getMonthName(year: number, month: number) {
+  return `${MONTHS_PT[month - 1]} de ${year}`
+}
+
+async function fetchMostActiveMonth(): Promise<{ year: number; month: number; count: number } | null> {
+  const monthCounts = new Map<string, number>()
+
+  for (const repo of REPOS) {
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/${GITHUB_USER}/${repo}/commits?per_page=100`,
+        { headers: { Accept: "application/vnd.github+json" } }
+      )
+      if (!res.ok) continue
+      const commits = await res.json()
+      if (!Array.isArray(commits)) continue
+
+      for (const c of commits) {
+        const date = new Date(c.commit.committer.date)
+        const key = `${date.getFullYear()}-${date.getMonth() + 1}`
+        monthCounts.set(key, (monthCounts.get(key) || 0) + 1)
+      }
+    } catch {
+      // skip failed repos
+    }
+  }
+
+  let best: { year: number; month: number; count: number } | null = null
+  for (const [key, count] of monthCounts) {
+    const [y, m] = key.split("-").map(Number)
+    if (!best || count > best.count) {
+      best = { year: y, month: m, count }
+    }
+  }
+
+  return best
+}
+
 export default function Timeline() {
+  const [mostActive, setMostActive] = useState<{ year: number; month: number; count: number } | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchMostActiveMonth().then((data) => {
+      setMostActive(data)
+      setLoading(false)
+    })
+  }, [])
+
   return (
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap" id="timeline">
       <h2 className="text-headline-md mb-16 text-center text-primary">Minha Jornada</h2>
       <div className="relative max-w-3xl mx-auto">
         <div className="absolute left-1/2 -translate-x-1/2 h-full w-[2px] bg-surface-container-high" />
-        {events.map((e) => (
-          <div
-            key={e.year}
-            className={`relative mb-16 flex items-center justify-between w-full ${e.align === "right" ? "flex-row-reverse" : ""}`}
-          >
-            <div className={`w-[45%] ${e.align === "right" ? "text-left pl-8" : "text-right pr-8"}`}>
-              <h4 className="text-headline-md text-on-surface">{e.title}</h4>
-              <p className="text-outline font-code-sm mb-2">{e.subtitle}</p>
-              <p className="text-sm text-on-surface-variant">{e.description}</p>
+
+        {loading ? (
+          <div className="text-center text-on-surface-variant font-body-base py-12">
+            Carregando atividade do GitHub...
+          </div>
+        ) : mostActive ? (
+          <div className="relative mb-16 flex items-center justify-between w-full flex-row-reverse">
+            <div className="w-[45%] text-left pl-8">
+              <h4 className="text-headline-md text-on-surface">Mês mais ativo no GitHub</h4>
+              <p className="text-outline font-code-sm mb-2">{getMonthName(mostActive.year, mostActive.month)}</p>
+              <p className="text-sm text-on-surface-variant">
+                {mostActive.count} commits distribuídos em {REPOS.length} repositórios.
+              </p>
             </div>
-            <div
-              className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10 border-4 border-background ${e.dotColor} ${e.year === "2026" ? "timeline-pulse" : ""}`}
-            />
-            <div className={`w-[45%] ${e.align === "right" ? "text-right pr-8" : "pl-8"}`}>
-              <span
-                className={`font-code-sm px-3 py-1 rounded ${
-                  e.year === "2026"
-                    ? "text-secondary bg-secondary/10"
-                    : e.year === "2024"
-                      ? "text-primary bg-primary/10"
-                      : "text-outline bg-surface-container-high"
-                }`}
-              >
-                {e.year}
+            <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10 border-4 border-background bg-secondary timeline-pulse" />
+            <div className="w-[45%] text-right pr-8">
+              <span className="font-code-sm px-3 py-1 rounded text-secondary bg-secondary/10">
+                {mostActive.year}
               </span>
             </div>
           </div>
-        ))}
+        ) : (
+          <div className="text-center text-on-surface-variant font-body-base py-12">
+            Nenhum dado de atividade encontrado.
+          </div>
+        )}
       </div>
       <div className="text-center mt-12">
         <a

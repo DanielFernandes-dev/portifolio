@@ -5,7 +5,7 @@ export default function AboutStats() {
         <div className="lg:col-span-7 glass-panel p-8 md:p-12 rounded-xl">
           <h2 className="text-headline-md mb-6 text-primary">Sobre Mim</h2>
           <p className="font-body-base text-body-base text-on-surface-variant mb-6">
-            Comecei a programar há cerca de 2 meses e desde então venho construindo projetos práticos com HTML, CSS, JavaScript, TypeScript e React. Cada repositório no GitHub representa um novo aprendizado — de componentes funcionais a deploy com Firebase Hosting. Meu foco atual é desenvolvimento web full stack com Next.js.
+            Sócio na Chronokairo, onde atuo no desenvolvimento de soluções web. Comecei a programar há cerca de 2 meses e desde então venho construindo projetos práticos com HTML, CSS, JavaScript, TypeScript e React. Cada repositório no GitHub representa um novo aprendizado — de componentes funcionais a deploy com Firebase Hosting. Meu foco atual é desenvolvimento web full stack com Next.js.
           </p>
           <div className="flex flex-wrap gap-3 mb-6">
             {["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Git", "Firebase"].map(

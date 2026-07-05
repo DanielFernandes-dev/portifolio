@@ -13,11 +13,9 @@ export default function Hero() {
           Daniel Fernandes
         </h1>
         <p className="font-code-sm text-code-sm text-secondary tracking-widest uppercase mb-8">
-          Estudante de Programação | JavaScript • TypeScript • React
+          Sócio na Chronokairo | Estudante de Programação | JavaScript • TypeScript • React
         </p>
-        <p className="font-body-base text-body-base text-on-surface-variant mb-12 max-w-2xl mx-auto">
-          Comecei minha jornada em programação há 2 meses e já construí projetos reais com React, TypeScript e Next.js. Cada repositório no GitHub reflete um passo concreto no aprendizado. Conheça meu trabalho.
-        </p>
+        <div className="mb-12" />
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="#projects"

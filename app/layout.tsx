@@ -93,8 +93,13 @@ export default function RootLayout({
                   name: "Daniel Fernandes",
                   url: siteUrl,
                   image: "https://avatars.githubusercontent.com/u/239253498?v=4",
-                  sameAs: ["https://github.com/DanielFernandes-dev"],
+                  sameAs: ["https://github.com/DanielFernandes-dev", "https://chronokairo.com.br"],
                   knowsAbout: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+                  memberOf: {
+                    "@type": "Organization",
+                    name: "Chronokairo",
+                    url: "https://chronokairo.com.br",
+                  },
                 },
                 {
                   "@type": "WebSite",
