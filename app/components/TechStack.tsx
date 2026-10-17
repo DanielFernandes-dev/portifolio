@@ -1,10 +1,10 @@
 const stacks = [
   { icon: "deployed_code", name: "Frontend", tech: "React, Next.js, Tailwind" },
-  { icon: "dns", name: "Backend", tech: "Node.js" },
+  { icon: "dns", name: "Backend", tech: "Python, FastAPI, SQLite" },
   { icon: "code", name: "Linguagens", tech: "JavaScript, TypeScript" },
   { icon: "web", name: "Web", tech: "HTML, CSS, DOM API" },
-  { icon: "neurology", name: "Aprendendo", tech: "Firebase, APIs REST" },
-  { icon: "construction", name: "Ferramentas", tech: "Git, VS Code, Figma" },
+  { icon: "neurology", name: "Dados", tech: "Firebase Auth, Firestore" },
+  { icon: "construction", name: "Apps", tech: "Tauri, Capacitor" },
 ]
 
 export default function TechStack() {

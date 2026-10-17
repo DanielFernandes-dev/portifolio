@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { projects } from "@/lib/projects"
 
 const GITHUB_USER = "DanielFernandes-dev"
-const REPOS = ["lotofacil_app", "redator", "site-html", "teste-react", "portifolio"]
+const REPOS = projects.map((project) => project.title)
 
 const MONTHS_PT = [
   "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -72,10 +73,10 @@ export default function Timeline() {
         ) : mostActive ? (
           <div className="relative mb-16 flex items-center justify-between w-full flex-row-reverse">
             <div className="w-[45%] text-left pl-8">
-              <h4 className="text-headline-md text-on-surface">Mês mais ativo no GitHub</h4>
+              <h4 className="text-headline-md text-on-surface">Mês em destaque no GitHub</h4>
               <p className="text-outline font-code-sm mb-2">{getMonthName(mostActive.year, mostActive.month)}</p>
               <p className="text-sm text-on-surface-variant">
-                {mostActive.count} commits distribuídos em {REPOS.length} repositórios.
+                {mostActive.count} commits entre os até 100 mais recentes de cada um dos {REPOS.length} repositórios.
               </p>
             </div>
             <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10 border-4 border-background bg-secondary timeline-pulse" />

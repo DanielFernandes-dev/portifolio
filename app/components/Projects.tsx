@@ -1,42 +1,5 @@
 import Link from "next/link"
-
-const projects = [
-  {
-    title: "lotofacil_app",
-    description: "Aplicativo para análise de resultados da Lotofácil, construído com TypeScript.",
-    tags: ["TypeScript", "CSS", "HTML"],
-    url: "https://github.com/DanielFernandes-dev/lotofacil_app",
-    span: "md:col-span-6",
-  },
-  {
-    title: "redator",
-    description: "Editor de texto simples para web com JavaScript e HTML.",
-    tags: ["JavaScript", "HTML"],
-    url: "https://github.com/DanielFernandes-dev/redator",
-    span: "md:col-span-6",
-  },
-  {
-    title: "site-html",
-    description: "Site desenvolvido com HTML puro, publicado via GitHub Pages.",
-    tags: ["HTML"],
-    url: "https://github.com/DanielFernandes-dev/site-html",
-    span: "md:col-span-4",
-  },
-  {
-    title: "teste-react",
-    description: "Projeto de teste com React, foco em estilização CSS.",
-    tags: ["CSS", "JavaScript", "React"],
-    url: "https://github.com/DanielFernandes-dev/teste-react",
-    span: "md:col-span-4",
-  },
-  {
-    title: "portifolio",
-    description: "Este portfólio — Next.js + Tailwind CSS v4 + Firebase Hosting.",
-    tags: ["TypeScript", "Next.js", "Tailwind"],
-    url: "https://github.com/DanielFernandes-dev/portifolio",
-    span: "md:col-span-4",
-  },
-]
+import { projects } from "@/lib/projects"
 
 export default function Projects() {
   return (
@@ -44,7 +7,7 @@ export default function Projects() {
       <div className="flex justify-between items-end mb-12">
         <div>
           <h2 className="text-headline-md text-on-surface">Projetos</h2>
-          <p className="text-on-surface-variant font-body-base">Meus repositórios públicos no GitHub.</p>
+          <p className="text-on-surface-variant font-body-base">{projects.length} repositórios públicos, de estudos a aplicações e jogos.</p>
         </div>
         <Link
           href="https://github.com/DanielFernandes-dev"

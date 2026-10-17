@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
+import { projects } from "@/lib/projects"
 import "./globals.css"
 
 const inter = Inter({
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Daniel Fernandes | Portfólio — Desenvolvedor em Formação",
   description:
-    "Conheça meus projetos e minha jornada como desenvolvedor. HTML, CSS, JavaScript, TypeScript, React e Next.js.",
+    "Conheça meus projetos em desenvolvimento web, aplicativos e jogos. React, TypeScript, Firebase, Python e JavaScript.",
   keywords: [
     "Daniel Fernandes",
     "portfólio",
@@ -29,10 +30,12 @@ export const metadata: Metadata = {
     "JavaScript",
     "HTML",
     "CSS",
-    "programador iniciante",
     "desenvolvimento web",
     "front-end",
     "Firebase",
+    "Python",
+    "FastAPI",
+    "Tauri",
     "GitHub",
   ],
   authors: [{ name: "Daniel Fernandes" }],
@@ -43,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Daniel Fernandes | Portfólio",
     description:
-      "Conheça meus projetos e minha jornada como desenvolvedor. HTML, CSS, JavaScript, TypeScript, React e Next.js.",
+      "Conheça meus projetos em desenvolvimento web, aplicativos e jogos. React, TypeScript, Firebase, Python e JavaScript.",
     url: siteUrl,
     siteName: "Daniel Fernandes Portfólio",
     locale: "pt_BR",
@@ -114,59 +117,17 @@ export default function RootLayout({
                   name: "Projetos no GitHub",
                   description: "Repositórios públicos de Daniel Fernandes",
                   url: `${siteUrl}/#projects`,
-                  numberOfItems: 5,
-                  itemListElement: [
-                    {
-                      "@type": "ListItem",
-                      position: 1,
-                      item: {
-                        "@type": "SoftwareSourceCode",
-                        name: "lotofacil_app",
-                        url: "https://github.com/DanielFernandes-dev/lotofacil_app",
-                        programmingLanguage: "TypeScript",
-                      },
+                  numberOfItems: projects.length,
+                  itemListElement: projects.map((project, index) => ({
+                    "@type": "ListItem",
+                    position: index + 1,
+                    item: {
+                      "@type": "SoftwareSourceCode",
+                      name: project.title,
+                      url: project.url,
+                      programmingLanguage: project.language,
                     },
-                    {
-                      "@type": "ListItem",
-                      position: 2,
-                      item: {
-                        "@type": "SoftwareSourceCode",
-                        name: "redator",
-                        url: "https://github.com/DanielFernandes-dev/redator",
-                        programmingLanguage: "JavaScript",
-                      },
-                    },
-                    {
-                      "@type": "ListItem",
-                      position: 3,
-                      item: {
-                        "@type": "SoftwareSourceCode",
-                        name: "site-html",
-                        url: "https://github.com/DanielFernandes-dev/site-html",
-                        programmingLanguage: "HTML",
-                      },
-                    },
-                    {
-                      "@type": "ListItem",
-                      position: 4,
-                      item: {
-                        "@type": "SoftwareSourceCode",
-                        name: "teste-react",
-                        url: "https://github.com/DanielFernandes-dev/teste-react",
-                        programmingLanguage: "JavaScript",
-                      },
-                    },
-                    {
-                      "@type": "ListItem",
-                      position: 5,
-                      item: {
-                        "@type": "SoftwareSourceCode",
-                        name: "portifolio",
-                        url: "https://github.com/DanielFernandes-dev/portifolio",
-                        programmingLanguage: "TypeScript",
-                      },
-                    },
-                  ],
+                  })),
                 },
               ],
             }),

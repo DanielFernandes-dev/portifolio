@@ -13,7 +13,7 @@ export default function Hero() {
           Daniel Fernandes
         </h1>
         <p className="font-code-sm text-code-sm text-secondary tracking-widest uppercase mb-8">
-          Sócio na Chronokairo | Estudante de Programação | JavaScript • TypeScript • React
+          Sócio na Chronokairo | Desenvolvimento web • Aplicativos • Jogos
         </p>
         <div className="mb-12" />
         <div className="flex flex-wrap justify-center gap-4">

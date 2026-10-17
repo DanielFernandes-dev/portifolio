@@ -1,3 +1,5 @@
+import { projects } from "@/lib/projects"
+
 export default function AboutStats() {
   return (
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap">
@@ -5,10 +7,10 @@ export default function AboutStats() {
         <div className="lg:col-span-7 glass-panel p-8 md:p-12 rounded-xl">
           <h2 className="text-headline-md mb-6 text-primary">Sobre Mim</h2>
           <p className="font-body-base text-body-base text-on-surface-variant mb-6">
-            Sócio na Chronokairo, onde atuo no desenvolvimento de soluções web. Comecei a programar há cerca de 2 meses e desde então venho construindo projetos práticos com HTML, CSS, JavaScript, TypeScript e React. Cada repositório no GitHub representa um novo aprendizado — de componentes funcionais a deploy com Firebase Hosting. Meu foco atual é desenvolvimento web full stack com Next.js.
+            Sou sócio na Chronokairo e construo projetos para aprender na prática. Meus repositórios públicos incluem um blog com React e Firebase, um editor com API em Python, um aplicativo de organização e uma visual novel para web e Android. Também exploro componentes React e páginas em HTML.
           </p>
           <div className="flex flex-wrap gap-3 mb-6">
-            {["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Git", "Firebase"].map(
+            {["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Python", "Firebase"].map(
               (skill) => (
                 <span
                   key={skill}
@@ -19,39 +21,36 @@ export default function AboutStats() {
               )
             )}
           </div>
-          <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-white/5">
             <div>
-              <span className="block text-headline-md text-secondary">2 Meses</span>
-              <span className="font-label-caps text-label-caps text-outline">Estudando</span>
+              <span className="block text-headline-md text-secondary">{projects.length}</span>
+              <span className="font-label-caps text-label-caps text-outline">Projetos públicos</span>
             </div>
             <div>
-              <span className="block text-headline-md text-secondary">5</span>
-              <span className="font-label-caps text-label-caps text-outline">Repositórios</span>
+              <span className="block text-headline-md text-secondary">3</span>
+              <span className="font-label-caps text-label-caps text-outline">Frentes de estudo</span>
             </div>
             <div>
-              <span className="block text-headline-md text-secondary">Em andamento</span>
-              <span className="font-label-caps text-label-caps text-outline">Aprendizado</span>
+              <span className="block text-headline-md text-secondary">Web + Android</span>
+              <span className="font-label-caps text-label-caps text-outline">Plataformas</span>
             </div>
           </div>
         </div>
         <div className="lg:col-span-5 space-y-6">
           <div className="glass-panel p-6 rounded-xl">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="font-label-caps text-label-caps text-primary">Linguagens</h3>
+              <h3 className="font-label-caps text-label-caps text-primary">O que tenho construído</h3>
               <span className="material-symbols-outlined text-secondary">query_stats</span>
             </div>
             <div className="space-y-4">
               {[
-                { lang: "TypeScript", width: "35%", color: "bg-primary" },
-                { lang: "HTML", width: "26%", color: "bg-secondary" },
-                { lang: "CSS", width: "17%", color: "bg-tertiary" },
-                { lang: "JavaScript", width: "15%", color: "bg-primary-container" },
+                { area: "Web", detail: "Blog, editor e estudos de interface" },
+                { area: "Aplicativos", detail: "Organização de conhecimento com Tauri" },
+                { area: "Jogos", detail: "Visual novel para navegador e Android" },
               ].map((item) => (
-                <div key={item.lang} className="flex justify-between items-center">
-                  <span className="font-code-sm text-code-sm">{item.lang}</span>
-                  <div className="h-1.5 w-32 bg-surface-container-high rounded-full overflow-hidden">
-                    <div className={`h-full ${item.color}`} style={{ width: item.width }} />
-                  </div>
+                <div key={item.area} className="flex flex-col gap-1 border-b border-white/5 pb-3 last:border-0 last:pb-0">
+                  <span className="font-code-sm text-code-sm text-on-surface">{item.area}</span>
+                  <span className="font-body-base text-sm text-on-surface-variant">{item.detail}</span>
                 </div>
               ))}
             </div>
@@ -64,8 +63,8 @@ export default function AboutStats() {
                 </span>
               </div>
               <div>
-                <p className="font-label-caps text-label-caps text-outline mb-1">Último Projeto</p>
-                <p className="font-body-base text-body-base">Portfólio com Next.js + Tailwind v4 + Firebase Hosting</p>
+                <p className="font-label-caps text-label-caps text-outline mb-1">Projeto em destaque</p>
+                <p className="font-body-base text-body-base">SANMD: visual novel investigativa para web e Android</p>
               </div>
             </div>
           </div>

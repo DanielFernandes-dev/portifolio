@@ -43,7 +43,8 @@ O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confi
 
 - `app/page.tsx` reúne as seções da página.
 - `app/components/` contém navegação, apresentação, projetos, tecnologias, jornada e rodapé.
+- `lib/projects.ts` reúne os repositórios públicos exibidos nos projetos, na jornada e nos dados estruturados.
 - `lib/firebase.ts` inicializa o Firebase Analytics no navegador, quando disponível.
 - `firebase.json` configura o Firebase Hosting para servir a exportação estática.
 
-A seção **Minha Jornada** consulta a API pública do GitHub no navegador para encontrar o mês com mais commits entre os repositórios listados em `app/components/Timeline.tsx`. Se a consulta falhar ou não houver dados, a página mostra uma mensagem no lugar da atividade.
+A seção **Minha Jornada** consulta a API pública do GitHub no navegador para destacar o mês com mais commits entre os até 100 commits recentes de cada repositório listado em `lib/projects.ts`. Se a consulta falhar ou não houver dados, a página mostra uma mensagem no lugar da atividade.
