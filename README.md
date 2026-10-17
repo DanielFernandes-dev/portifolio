@@ -44,6 +44,7 @@ O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confi
 - `app/page.tsx` reúne as seções da página.
 - `app/components/` contém navegação, apresentação, projetos, tecnologias, jornada e rodapé.
 - `lib/projects.ts` reúne os repositórios públicos exibidos nos projetos, na jornada e nos dados estruturados.
+- `public/projects/` contém as prévias visuais dos projetos exibidas nos cartões.
 - `lib/firebase.ts` inicializa o Firebase Analytics no navegador, quando disponível.
 - `firebase.json` configura o Firebase Hosting para servir a exportação estática.
 

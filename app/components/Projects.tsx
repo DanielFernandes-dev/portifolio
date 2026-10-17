@@ -1,10 +1,11 @@
 import Link from "next/link"
+import Image from "next/image"
 import { projects } from "@/lib/projects"
 
 export default function Projects() {
   return (
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap" id="projects">
-      <div className="flex justify-between items-end mb-12">
+      <div className="flex flex-col items-start gap-4 sm:flex-row sm:justify-between sm:items-end mb-12">
         <div>
           <h2 className="text-headline-md text-on-surface">Projetos</h2>
           <p className="text-on-surface-variant font-body-base">{projects.length} repositórios públicos, de estudos a aplicações e jogos.</p>
@@ -23,8 +24,20 @@ export default function Projects() {
             href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${p.span} group relative rounded-xl overflow-hidden glass-panel flex-col border border-white/10 hover:border-primary/40 transition-all p-6 bg-surface-container/90 backdrop-blur-md`}
+            className={`${p.span} group relative rounded-xl overflow-hidden glass-panel flex flex-col border border-white/10 hover:border-primary/40 transition-all p-6 bg-surface-container/90 backdrop-blur-md`}
           >
+            <div className="relative aspect-video -mx-6 -mt-6 mb-6 overflow-hidden bg-surface-container-high border-b border-white/10">
+              <Image
+                src={p.preview}
+                alt={p.previewAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <span className="absolute bottom-3 left-3 rounded bg-background/85 px-3 py-1 font-code-sm text-xs text-on-surface backdrop-blur-sm">
+                Prévia do projeto
+              </span>
+            </div>
             <div className="flex justify-between items-start mb-3">
               <h3 className="text-headline-md text-on-surface group-hover:text-primary transition-colors">
                 {p.title}

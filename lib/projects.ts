@@ -5,6 +5,8 @@ export const projects = [
     tags: ["React", "TypeScript", "Firebase"],
     language: "TypeScript",
     url: "https://github.com/DanielFernandes-dev/diario-do-dev",
+    preview: "/projects/diario-do-dev.webp",
+    previewAlt: "Interface do feed do Diário do Dev",
     span: "md:col-span-6",
   },
   {
@@ -13,6 +15,8 @@ export const projects = [
     tags: ["JavaScript", "Capacitor", "Android"],
     language: "JavaScript",
     url: "https://github.com/DanielFernandes-dev/sanmd",
+    preview: "/projects/sanmd.webp",
+    previewAlt: "Arte do menu inicial de SANMD",
     span: "md:col-span-6",
   },
   {
@@ -21,6 +25,8 @@ export const projects = [
     tags: ["JavaScript", "Python", "FastAPI"],
     language: "JavaScript",
     url: "https://github.com/DanielFernandes-dev/redator",
+    preview: "/projects/redator.webp",
+    previewAlt: "Interface do editor Redator de Novelas",
     span: "md:col-span-6",
   },
   {
@@ -29,6 +35,8 @@ export const projects = [
     tags: ["JavaScript", "Tauri", "Rust"],
     language: "Rust",
     url: "https://github.com/DanielFernandes-dev/nomande",
+    preview: "/projects/nomande.webp",
+    previewAlt: "Tela inicial do aplicativo Nômade",
     span: "md:col-span-6",
   },
   {
@@ -37,6 +45,8 @@ export const projects = [
     tags: ["React", "Vite", "CSS"],
     language: "CSS",
     url: "https://github.com/DanielFernandes-dev/teste-react",
+    preview: "/projects/teste-react.webp",
+    previewAlt: "Imagem exibida no exercício teste-react",
     span: "md:col-span-6",
   },
   {
@@ -45,6 +55,8 @@ export const projects = [
     tags: ["HTML", "GitHub Pages"],
     language: "HTML",
     url: "https://github.com/DanielFernandes-dev/site-html",
+    preview: "/projects/site-html.webp",
+    previewAlt: "Página inicial do projeto site-html",
     span: "md:col-span-6",
   },
 ] as const
