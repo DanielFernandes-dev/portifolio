@@ -1,18 +1,23 @@
 # Portfólio de Daniel Fernandes
 
-Portfólio pessoal com apresentação, tecnologias, projetos e os meses em que estive ativo no GitHub. A versão publicada está em [daniel-fernandes-dev.web.app](https://daniel-fernandes-dev.web.app).
+Portfólio pessoal com apresentação, experiência prática em projetos, tecnologias usadas e os meses em que estive ativo no GitHub. A versão publicada está em [daniel-fernandes-dev.web.app](https://daniel-fernandes-dev.web.app).
 
 ## Conteúdo
 
-- **Projetos:** cartões de seis repositórios públicos, com prévias visuais e links para o código.
-- **Tecnologias:** ferramentas usadas nos projetos e no desenvolvimento do site.
+- **Sobre mim:** estudante do 4º período de Ciências da Computação no CIESA, em Manaus, com conclusão prevista para 2028. A experiência vem dos projetos práticos, enquanto sigo aprendendo os fundamentos teóricos na graduação.
+- **Projetos:** seis repositórios públicos com prévias, links para o código e tecnologias usadas em cada um. Diário do Dev e SANMD recebem destaque.
+- **Tecnologias usadas:** ferramentas com as quais tive contato em projetos e estudos.
 - **Meses ativos:** todos os meses identificados nas contribuições do perfil ou nos commits dos repositórios conferidos até 17/10/2026, em ordem cronológica. Os dados são uma fotografia dessa data, não uma contagem em tempo real.
 
-## Tecnologias
+## Tecnologias usadas neste site
 
 - Astro 7 e TypeScript
 - Tailwind CSS 4
 - Firebase Analytics e Firebase Hosting
+
+## Contato
+
+[danielfernandesdeoliveira459@gmail.com](mailto:danielfernandesdeoliveira459@gmail.com)
 
 ## Executar localmente
 
