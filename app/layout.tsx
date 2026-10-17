@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Daniel Fernandes | Portfólio",
     description:
-      "Conheça meus projetos e minha jornada como desenvolvedor.",
+      "Conheça meus projetos e os meses de atividade no GitHub.",
     images: ["https://avatars.githubusercontent.com/u/239253498?v=4"],
   },
   robots: {
@@ -109,7 +109,7 @@ export default function RootLayout({
                   url: siteUrl,
                   name: "Daniel Fernandes Portfólio",
                   description:
-                    "Portfólio pessoal com projetos e jornada como desenvolvedor.",
+                    "Portfólio pessoal com projetos e meses de atividade no GitHub.",
                   inLanguage: "pt-BR",
                 },
                 {

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { activityMonths, activityUpdatedAt } from "@/lib/activityMonths"
+import { activityMonths } from "@/lib/activityMonths"
 
 const MONTHS_PT = [
   "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -19,36 +19,10 @@ export default function Timeline() {
 
   return (
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap scroll-mt-20" id="timeline">
-      <div className="overflow-hidden rounded-[28px] border border-white/10 bg-surface-container-low">
-        <div className="relative overflow-hidden border-b border-white/10 px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
-          <div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
-          <div className="pointer-events-none absolute bottom-0 right-24 h-40 w-40 rounded-full bg-secondary/10 blur-3xl" aria-hidden="true" />
-          <div className="relative max-w-3xl">
-            <p className="font-code-sm text-xs uppercase tracking-[0.22em] text-secondary mb-4">Trajetória / GitHub</p>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-on-surface mb-4">Minha Jornada</h2>
-            <p className="font-body-base text-on-surface-variant max-w-2xl">
-              Cada mês abaixo tem atividade registrada no meu GitHub. Os meses em que também trabalhei neste portfólio estão destacados.
-            </p>
-            <div className="flex flex-wrap gap-3 mt-8">
-              <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-background/55 px-4 py-3">
-                <strong className="text-2xl font-semibold text-primary">{activityMonths.length}</strong>
-                <span className="text-sm text-on-surface-variant leading-tight">meses com<br />atividade</span>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl border border-secondary/20 bg-secondary/5 px-4 py-3">
-                <strong className="text-2xl font-semibold text-secondary">{portfolioCount}</strong>
-                <span className="text-sm text-on-surface-variant leading-tight">meses neste<br />portfólio</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="px-6 py-8 sm:px-10 lg:px-12 lg:py-10">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between mb-9">
-            <div>
-              <h3 className="text-xl font-semibold text-on-surface mb-1">Meses ativos</h3>
-              <p className="text-sm text-on-surface-variant">Do primeiro registro ao mais recente.</p>
-            </div>
-            <div className="inline-flex self-start rounded-xl border border-white/10 bg-background/55 p-1" role="group" aria-label="Filtrar meses da jornada">
+      <div className="rounded-[28px] border border-white/10 bg-surface-container-low px-6 py-8 sm:px-10 lg:px-12 lg:py-10">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between mb-9">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-on-surface">Meses ativos</h2>
+            <div className="inline-flex self-start rounded-xl border border-white/10 bg-background/55 p-1" role="group" aria-label="Filtrar meses ativos">
               <button
                 type="button"
                 aria-pressed={filter === "all"}
@@ -66,14 +40,14 @@ export default function Timeline() {
                 Portfólio ({portfolioCount})
               </button>
             </div>
-          </div>
+        </div>
 
-          <p className="sr-only" aria-live="polite">Exibindo {visibleMonths.length} meses.</p>
-          <div className="space-y-9">
+        <p className="sr-only" aria-live="polite">Exibindo {visibleMonths.length} meses.</p>
+        <div className="space-y-9">
             {years.map((year) => (
-              <div key={year} aria-labelledby={`journey-year-${year}`}>
+              <div key={year} aria-labelledby={`active-year-${year}`}>
                 <div className="flex items-center gap-4 mb-5">
-                  <h4 id={`journey-year-${year}`} className="font-code-sm text-sm text-secondary">{year}</h4>
+                  <h3 id={`active-year-${year}`} className="font-code-sm text-sm text-secondary">{year}</h3>
                   <div className="h-px flex-1 bg-outline-variant/60" aria-hidden="true" />
                 </div>
                 <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -104,21 +78,6 @@ export default function Timeline() {
                 </ol>
               </div>
             ))}
-          </div>
-
-          <div className="mt-10 border-t border-white/10 pt-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-xl text-xs leading-relaxed text-on-surface-variant">
-              Os meses são identificados por contribuições no perfil e commits dos repositórios. Eles indicam atividade, não horas trabalhadas. Dados conferidos em {activityUpdatedAt}.
-            </p>
-            <div className="flex flex-wrap gap-4 text-sm font-medium">
-              <a href="https://github.com/DanielFernandes-dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                Ver GitHub ↗
-              </a>
-              <a href="https://diario-do-dev.web.app/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
-                Diário do Dev ↗
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

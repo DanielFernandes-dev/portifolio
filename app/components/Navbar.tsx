@@ -1,6 +1,6 @@
 const navLinks = [
   { href: "#projects", label: "Projetos" },
-  { href: "#timeline", label: "Jornada" },
+  { href: "#timeline", label: "Meses ativos" },
 ]
 
 export default function Navbar() {

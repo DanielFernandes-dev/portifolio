@@ -42,11 +42,11 @@ O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confi
 ## Estrutura
 
 - `app/page.tsx` reúne as seções da página.
-- `app/components/` contém navegação, apresentação, projetos, tecnologias, jornada e rodapé.
+- `app/components/` contém navegação, apresentação, projetos, tecnologias, meses ativos e rodapé.
 - `lib/projects.ts` reúne os repositórios públicos exibidos nos projetos e nos dados estruturados.
-- `lib/activityMonths.ts` reúne os meses de atividade exibidos em Minha Jornada e a data da última conferência.
+- `lib/activityMonths.ts` reúne os meses de atividade exibidos no portfólio e a data da última conferência.
 - `public/projects/` contém as prévias visuais dos projetos exibidas nos cartões.
 - `lib/firebase.ts` inicializa o Firebase Analytics no navegador, quando disponível.
 - `firebase.json` configura o Firebase Hosting para servir a exportação estática.
 
-A seção **Minha Jornada** mostra, em ordem cronológica, todos os meses com contribuições no perfil do GitHub ou commits nos repositórios públicos conferidos até 17/10/2026. Julho e outubro de 2026 estão destacados porque também têm commits neste portfólio. O visitante pode filtrar a lista para ver apenas os meses do portfólio. Ao atualizar os dados, edite `lib/activityMonths.ts` e a data de conferência.
+A seção **Meses ativos** mostra, em ordem cronológica, todos os meses com contribuições no perfil do GitHub ou commits nos repositórios públicos conferidos até 17/10/2026. Julho e outubro de 2026 estão destacados porque também têm commits neste portfólio. O visitante pode filtrar a lista para ver apenas os meses do portfólio. Ao atualizar os dados, edite `lib/activityMonths.ts` e a data de conferência.
