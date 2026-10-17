@@ -9,6 +9,10 @@ const MONTHS_PT = [
   "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
   "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro",
 ]
+const PORTFOLIO_MONTHS = [
+  { year: 2026, month: 7 },
+  { year: 2026, month: 10 },
+]
 
 type ActivityMonth = { year: number; month: number; count: number }
 type GitHubCommit = { commit?: { committer?: { date?: string } } }
@@ -84,11 +88,18 @@ export default function Timeline() {
     <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap" id="timeline">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-headline-md mb-3 text-center text-primary">Minha Jornada</h2>
-        <div className="glass-panel rounded-xl p-6 mb-10 text-center">
-          <h3 className="font-body-base font-semibold text-on-surface mb-2">Atividade neste portfólio</h3>
-          <p className="font-body-base text-on-surface-variant">
-            O histórico deste projeto registra commits em julho e outubro de 2026.
-          </p>
+        <h3 className="text-headline-md text-center text-on-surface mb-3">Meses ativos neste portfólio</h3>
+        <p className="text-center text-on-surface-variant font-body-base mb-6">
+          {PORTFOLIO_MONTHS.length} meses com commits registrados no histórico deste projeto.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12" aria-label="Meses ativos neste portfólio">
+          {PORTFOLIO_MONTHS.map(({ year, month }) => (
+            <div key={`${year}-${month}`} className="glass-panel rounded-xl p-6 border-l-4 border-l-secondary">
+              <span className="font-code-sm text-code-sm text-secondary">{year}</span>
+              <h4 className="text-headline-md text-on-surface mt-2">{MONTHS_PT[month - 1]}</h4>
+              <p className="font-body-base text-sm text-on-surface-variant mt-2">Commits neste portfólio</p>
+            </div>
+          ))}
         </div>
         <h3 className="text-headline-md text-center text-on-surface mb-3">Atividade no GitHub</h3>
         <p className="text-center text-on-surface-variant font-body-base mb-10">
