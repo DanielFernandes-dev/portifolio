@@ -33,6 +33,13 @@ Acesse [http://localhost:4321](http://localhost:4321).
 | `npm run check` | Verifica os componentes Astro e os tipos TypeScript. |
 | `npm run lint` | Verifica o código com ESLint. |
 | `npm run build` | Gera a versão estática na pasta `out/`. |
+| `npm run preview` | Abre uma prévia local da versão gerada. |
+
+## SEO e indexação
+
+A página inicial tem título e descrição próprios, URL canônica, metadados Open Graph e Twitter e dados estruturados em JSON-LD para o perfil e os projetos. O arquivo `public/robots.txt` permite o rastreamento e aponta para `public/sitemap.xml`, que lista a URL canônica.
+
+O Firebase Hosting redireciona `/index.html` para `/` com HTTP 301. Endereços inexistentes retornam HTTP 404 com a página `src/pages/404.astro`, marcada com `noindex`. Ao alterar o conteúdo, atualize também os metadados e a data do sitemap quando necessário. A indexação efetiva deve ser acompanhada no Google Search Console.
 
 ## Publicação
 
@@ -49,6 +56,7 @@ O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confi
 ## Estrutura
 
 - `src/pages/index.astro` reúne as seções da página.
+- `src/pages/404.astro` apresenta a página de erro para endereços inexistentes.
 - `src/components/` contém navegação, apresentação, projetos, tecnologias, meses ativos e rodapé.
 - `src/layouts/Layout.astro` define o HTML, os metadados e os dados estruturados.
 - `src/styles/global.css` reúne o tema e os estilos globais.
@@ -56,6 +64,6 @@ O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confi
 - `lib/activityMonths.ts` reúne os meses exibidos na seção **Meses ativos** e a data da última conferência.
 - `public/projects/` contém as prévias visuais dos projetos exibidas nos cartões.
 - `lib/firebase.ts` inicializa o Firebase Analytics no navegador, quando disponível.
-- `firebase.json` configura o Firebase Hosting para servir a exportação estática.
+- `firebase.json` configura o Firebase Hosting, incluindo o redirecionamento de `/index.html`.
 
 Para atualizar a seção **Meses ativos**, confira novamente as contribuições e os commits, depois edite a lista e a data de conferência em `lib/activityMonths.ts`.
