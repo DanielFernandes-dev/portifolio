@@ -1,5 +1,7 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Projeto Astro
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+O site é uma página estática feita com Astro e Tailwind CSS 4.
+
+- Edite as seções em `src/components/` e a página em `src/pages/index.astro`.
+- Mantenha a exportação estática na pasta `out/`, publicada pelo Firebase Hosting.
+- Antes de entregar alterações, execute `npm run check`, `npm run lint` e `npm run build`.

@@ -13,9 +13,10 @@
 # testing
 /coverage
 
-# next.js
-/.next/
+# astro
+/.astro/
 /out/
+/.next/
 
 # production
 /build

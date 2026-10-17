@@ -1,0 +1,84 @@
+---
+import { projects } from "../../lib/projects"
+import "../styles/global.css"
+
+const siteUrl = "https://daniel-fernandes-dev.web.app"
+const avatarUrl = "https://avatars.githubusercontent.com/u/239253498?v=4"
+const title = "Daniel Fernandes | Portfólio — Desenvolvedor em Formação"
+const description = "Conheça meus projetos em desenvolvimento web, aplicativos e jogos. Astro, TypeScript, Firebase, Python e JavaScript."
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: "Daniel Fernandes",
+      url: siteUrl,
+      image: avatarUrl,
+      sameAs: ["https://github.com/DanielFernandes-dev", "https://chronokairo.com.br"],
+      knowsAbout: ["HTML", "CSS", "JavaScript", "TypeScript", "Astro"],
+      memberOf: {
+        "@type": "Organization",
+        name: "Chronokairo",
+        url: "https://chronokairo.com.br",
+      },
+    },
+    {
+      "@type": "WebSite",
+      url: siteUrl,
+      name: "Daniel Fernandes Portfólio",
+      description: "Portfólio pessoal com projetos e meses de atividade no GitHub.",
+      inLanguage: "pt-BR",
+    },
+    {
+      "@type": "ItemList",
+      name: "Projetos no GitHub",
+      description: "Repositórios públicos de Daniel Fernandes",
+      url: `${siteUrl}/#projects`,
+      numberOfItems: projects.length,
+      itemListElement: projects.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareSourceCode",
+          name: project.title,
+          url: project.url,
+          programmingLanguage: project.language,
+        },
+      })),
+    },
+  ],
+}
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Daniel Fernandes" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="Daniel Fernandes, portfólio, desenvolvedor, Astro, TypeScript, JavaScript, HTML, CSS, desenvolvimento web, Firebase, Python, FastAPI, Tauri, GitHub" />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Daniel Fernandes Portfólio" />
+    <meta property="og:title" content="Daniel Fernandes | Portfólio" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={avatarUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Daniel Fernandes | Portfólio" />
+    <meta name="twitter:description" content="Conheça meus projetos e os meses de atividade no GitHub." />
+    <meta name="twitter:image" content={avatarUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
+    <slot />
+  </body>
+</html>

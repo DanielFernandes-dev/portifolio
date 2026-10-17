@@ -10,7 +10,7 @@ Portfólio pessoal com apresentação, tecnologias, projetos e os meses em que e
 
 ## Tecnologias
 
-- Next.js 16, React 19 e TypeScript
+- Astro 7 e TypeScript
 - Tailwind CSS 4
 - Firebase Analytics e Firebase Hosting
 
@@ -23,19 +23,20 @@ npm ci
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000).
+Acesse [http://localhost:4321](http://localhost:4321).
 
 ## Comandos
 
 | Comando | Função |
 | --- | --- |
 | `npm run dev` | Inicia o servidor de desenvolvimento. |
+| `npm run check` | Verifica os componentes Astro e os tipos TypeScript. |
 | `npm run lint` | Verifica o código com ESLint. |
 | `npm run build` | Gera a versão estática na pasta `out/`. |
 
 ## Publicação
 
-O projeto usa `output: "export"` no Next.js, e o Firebase Hosting publica os arquivos da pasta `out/`. Com a Firebase CLI instalada e autenticada, execute:
+O Astro gera um site estático na pasta `out/`, publicada pelo Firebase Hosting. Com a Firebase CLI instalada e autenticada, execute:
 
 ```bash
 npm ci
@@ -47,8 +48,10 @@ O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confi
 
 ## Estrutura
 
-- `app/page.tsx` reúne as seções da página.
-- `app/components/` contém navegação, apresentação, projetos, tecnologias, meses ativos e rodapé.
+- `src/pages/index.astro` reúne as seções da página.
+- `src/components/` contém navegação, apresentação, projetos, tecnologias, meses ativos e rodapé.
+- `src/layouts/Layout.astro` define o HTML, os metadados e os dados estruturados.
+- `src/styles/global.css` reúne o tema e os estilos globais.
 - `lib/projects.ts` reúne os repositórios públicos exibidos nos projetos e nos dados estruturados.
 - `lib/activityMonths.ts` reúne os meses exibidos na seção **Meses ativos** e a data da última conferência.
 - `public/projects/` contém as prévias visuais dos projetos exibidas nos cartões.

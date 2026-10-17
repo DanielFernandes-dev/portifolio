@@ -1,0 +1,24 @@
+---
+const stacks = [
+  { icon: "deployed_code", name: "Frontend", tech: "Astro, Tailwind" },
+  { icon: "dns", name: "Backend", tech: "Python, FastAPI, SQLite" },
+  { icon: "code", name: "Linguagens", tech: "JavaScript, TypeScript" },
+  { icon: "web", name: "Web", tech: "HTML, CSS, DOM API" },
+  { icon: "neurology", name: "Dados", tech: "Firebase Auth, Firestore" },
+  { icon: "construction", name: "Apps", tech: "Tauri, Capacitor" },
+]
+---
+    <section class="max-w-[1280px] mx-auto px-gutter py-stack-gap">
+        <h2 class="text-headline-md mb-12 text-center text-on-surface">Tecnologias</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {stacks.map((s) => (
+          <div
+            class="glass-panel p-6 rounded-xl text-center group hover:border-primary/50 transition-colors"
+          >
+            <span class="material-symbols-outlined text-primary text-4xl mb-3 block">{s.icon}</span>
+            <h4 class="font-label-caps text-label-caps mb-2">{s.name}</h4>
+            <p class="text-[10px] text-outline font-code-sm">{s.tech}</p>
+          </div>
+        ))}
+      </div>
+    </section>
