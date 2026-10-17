@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio de Daniel Fernandes
 
-## Getting Started
+Portfólio pessoal com apresentação, tecnologias, projetos e uma linha do tempo da atividade no GitHub. A versão publicada está em [daniel-fernandes-dev.web.app](https://daniel-fernandes-dev.web.app).
 
-First, run the development server:
+## Tecnologias
+
+- Next.js 16, React 19 e TypeScript
+- Tailwind CSS 4
+- Firebase Analytics e Firebase Hosting
+
+## Executar localmente
+
+Tenha Node.js e npm instalados. Na pasta do projeto, execute:
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Comandos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando | Função |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento. |
+| `npm run lint` | Verifica o código com ESLint. |
+| `npm run build` | Gera a versão estática na pasta `out/`. |
 
-## Learn More
+## Publicação
 
-To learn more about Next.js, take a look at the following resources:
+O projeto usa `output: "export"` no Next.js, e o Firebase Hosting publica os arquivos da pasta `out/`. Para publicar em um projeto Firebase ao qual você tenha acesso:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm ci
+npm run build
+npx firebase-tools deploy --only hosting
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confira o destino antes de executar o deploy com suas credenciais.
 
-## Deploy on Vercel
+## Estrutura
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/page.tsx` reúne as seções da página.
+- `app/components/` contém navegação, apresentação, projetos, tecnologias, jornada e rodapé.
+- `lib/firebase.ts` inicializa o Firebase Analytics no navegador, quando disponível.
+- `firebase.json` configura o Firebase Hosting para servir a exportação estática.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A seção **Minha Jornada** consulta a API pública do GitHub no navegador para encontrar o mês com mais commits entre os repositórios listados em `app/components/Timeline.tsx`. Se a consulta falhar ou não houver dados, a página mostra uma mensagem no lugar da atividade.
