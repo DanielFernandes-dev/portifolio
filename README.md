@@ -47,4 +47,4 @@ O projeto Firebase configurado em `.firebaserc` é `daniel-fernandes-dev`. Confi
 - `lib/firebase.ts` inicializa o Firebase Analytics no navegador, quando disponível.
 - `firebase.json` configura o Firebase Hosting para servir a exportação estática.
 
-A seção **Minha Jornada** consulta a API pública do GitHub no navegador para destacar o mês com mais commits entre os até 100 commits recentes de cada repositório listado em `lib/projects.ts`. Se a consulta falhar ou não houver dados, a página mostra uma mensagem no lugar da atividade.
+A seção **Minha Jornada** mostra os meses com commits no histórico deste portfólio e consulta a API pública do GitHub no navegador para listar todos os meses com commits nos repositórios de `lib/projects.ts`, em ordem de atividade. A consulta percorre as páginas de commits de cada repositório. Se ela falhar ou não houver dados, a página mostra uma mensagem no lugar da lista pública.
