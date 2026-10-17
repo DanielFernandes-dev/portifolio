@@ -2,7 +2,7 @@
 import { projects } from "../../lib/projects"
 import "../styles/global.css"
 
-const siteUrl = "https://daniel-fernandes-dev.web.app"
+const siteUrl = "https://daniel-fernandes-dev.web.app/"
 const avatarUrl = "https://avatars.githubusercontent.com/u/239253498?v=4"
 const title = "Daniel Fernandes | Portfólio — Desenvolvedor em Formação"
 const description = "Conheça meus projetos em desenvolvimento web, aplicativos e jogos. Astro, TypeScript, Firebase, Python e JavaScript."
@@ -33,7 +33,7 @@ const structuredData = {
       "@type": "ItemList",
       name: "Projetos no GitHub",
       description: "Repositórios públicos de Daniel Fernandes",
-      url: `${siteUrl}/#projects`,
+      url: `${siteUrl}#projects`,
       numberOfItems: projects.length,
       itemListElement: projects.map((project, index) => ({
         "@type": "ListItem",
