@@ -1,160 +1,124 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { projects } from "@/lib/projects"
-
-const GITHUB_USER = "DanielFernandes-dev"
+import { useState } from "react"
+import { activityMonths, activityUpdatedAt } from "@/lib/activityMonths"
 
 const MONTHS_PT = [
   "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
   "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro",
 ]
-const PORTFOLIO_MONTHS = [
-  { year: 2026, month: 7 },
-  { year: 2026, month: 10 },
-]
 
-type ActivityMonth = { year: number; month: number; count: number }
-type GitHubCommit = { commit?: { committer?: { date?: string } } }
-
-function getMonthName({ year, month }: ActivityMonth) {
-  return `${MONTHS_PT[month - 1]} de ${year}`
-}
-
-async function fetchRepoCommitDates(repo: string, signal: AbortSignal): Promise<string[]> {
-  const dates: string[] = []
-  let page = 1
-
-  while (true) {
-    const response = await fetch(
-      `https://api.github.com/repos/${GITHUB_USER}/${repo}/commits?per_page=100&page=${page}`,
-      { headers: { Accept: "application/vnd.github+json" }, signal }
-    )
-
-    if (!response.ok) throw new Error(`GitHub: ${response.status}`)
-
-    const commits: GitHubCommit[] = await response.json()
-    for (const item of commits) {
-      const date = item.commit?.committer?.date
-      if (date) dates.push(date)
-    }
-
-    if (!response.headers.get("link")?.includes('rel="next"')) break
-    page += 1
-  }
-
-  return dates
-}
-
-async function fetchActivityMonths(signal: AbortSignal): Promise<ActivityMonth[]> {
-  const datesByRepo = await Promise.all(
-    projects.map((project) => fetchRepoCommitDates(project.title, signal))
-  )
-  const counts = new Map<string, number>()
-
-  for (const dates of datesByRepo) {
-    for (const date of dates) {
-      const key = date.slice(0, 7)
-      counts.set(key, (counts.get(key) ?? 0) + 1)
-    }
-  }
-
-  return [...counts].map(([key, count]) => {
-    const [year, month] = key.split("-").map(Number)
-    return { year, month, count }
-  }).sort((a, b) => b.count - a.count || b.year - a.year || b.month - a.month)
-}
+const portfolioCount = activityMonths.filter((item) => item.portfolio).length
 
 export default function Timeline() {
-  const [months, setMonths] = useState<ActivityMonth[]>([])
-  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading")
-
-  useEffect(() => {
-    const controller = new AbortController()
-    fetchActivityMonths(controller.signal)
-      .then((activity) => {
-        setMonths(activity)
-        setStatus("ready")
-      })
-      .catch(() => {
-        if (!controller.signal.aborted) setStatus("error")
-      })
-    return () => controller.abort()
-  }, [])
-
-  const maxCount = months[0]?.count ?? 0
+  const [filter, setFilter] = useState<"all" | "portfolio">("all")
+  const visibleMonths = filter === "portfolio"
+    ? activityMonths.filter((item) => item.portfolio)
+    : activityMonths
+  const years = [...new Set(visibleMonths.map((item) => item.year))]
 
   return (
-    <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap" id="timeline">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-headline-md mb-3 text-center text-primary">Minha Jornada</h2>
-        <h3 className="text-headline-md text-center text-on-surface mb-3">Meses ativos neste portfólio</h3>
-        <p className="text-center text-on-surface-variant font-body-base mb-6">
-          {PORTFOLIO_MONTHS.length} meses com commits registrados no histórico deste projeto.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12" aria-label="Meses ativos neste portfólio">
-          {PORTFOLIO_MONTHS.map(({ year, month }) => (
-            <div key={`${year}-${month}`} className="glass-panel rounded-xl p-6 border-l-4 border-l-secondary">
-              <span className="font-code-sm text-code-sm text-secondary">{year}</span>
-              <h4 className="text-headline-md text-on-surface mt-2">{MONTHS_PT[month - 1]}</h4>
-              <p className="font-body-base text-sm text-on-surface-variant mt-2">Commits neste portfólio</p>
+    <section className="max-w-[1280px] mx-auto px-gutter py-stack-gap scroll-mt-20" id="timeline">
+      <div className="overflow-hidden rounded-[28px] border border-white/10 bg-surface-container-low">
+        <div className="relative overflow-hidden border-b border-white/10 px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
+          <div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute bottom-0 right-24 h-40 w-40 rounded-full bg-secondary/10 blur-3xl" aria-hidden="true" />
+          <div className="relative max-w-3xl">
+            <p className="font-code-sm text-xs uppercase tracking-[0.22em] text-secondary mb-4">Trajetória / GitHub</p>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-on-surface mb-4">Minha Jornada</h2>
+            <p className="font-body-base text-on-surface-variant max-w-2xl">
+              Cada mês abaixo tem atividade registrada no meu GitHub. Os meses em que também trabalhei neste portfólio estão destacados.
+            </p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-background/55 px-4 py-3">
+                <strong className="text-2xl font-semibold text-primary">{activityMonths.length}</strong>
+                <span className="text-sm text-on-surface-variant leading-tight">meses com<br />atividade</span>
+              </div>
+              <div className="flex items-center gap-3 rounded-xl border border-secondary/20 bg-secondary/5 px-4 py-3">
+                <strong className="text-2xl font-semibold text-secondary">{portfolioCount}</strong>
+                <span className="text-sm text-on-surface-variant leading-tight">meses neste<br />portfólio</span>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
-        <h3 className="text-headline-md text-center text-on-surface mb-3">Atividade no GitHub</h3>
-        <p className="text-center text-on-surface-variant font-body-base mb-10">
-          Meses com commits nos {projects.length} repositórios públicos do meu GitHub, do mais ativo ao menos ativo.
-        </p>
 
-        {status === "loading" && (
-          <p className="text-center text-on-surface-variant font-body-base py-12">Carregando atividade do GitHub...</p>
-        )}
-        {status === "error" && (
-          <p className="text-center text-on-surface-variant font-body-base py-12">
-            Não foi possível carregar a atividade do GitHub agora.
-          </p>
-        )}
-        {status === "ready" && months.length === 0 && (
-          <p className="text-center text-on-surface-variant font-body-base py-12">Nenhum mês com commits encontrado.</p>
-        )}
-        {status === "ready" && months.length > 0 && (
-          <div className="space-y-4" aria-label="Meses com atividade nos repositórios públicos">
-            {months.map((item, index) => (
-              <div key={`${item.year}-${item.month}`} className="glass-panel rounded-xl p-5 sm:p-6">
-                <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="font-body-base font-semibold text-on-surface">{getMonthName(item)}</h3>
-                    {index === 0 && (
-                      <span className="text-xs font-code-sm text-secondary bg-secondary/10 px-2 py-1 rounded">
-                        Mês mais ativo
-                      </span>
-                    )}
-                  </div>
-                  <span className="font-code-sm text-code-sm text-secondary">
-                    {item.count} {item.count === 1 ? "commit" : "commits"}
-                  </span>
+        <div className="px-6 py-8 sm:px-10 lg:px-12 lg:py-10">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between mb-9">
+            <div>
+              <h3 className="text-xl font-semibold text-on-surface mb-1">Meses ativos</h3>
+              <p className="text-sm text-on-surface-variant">Do primeiro registro ao mais recente.</p>
+            </div>
+            <div className="inline-flex self-start rounded-xl border border-white/10 bg-background/55 p-1" role="group" aria-label="Filtrar meses da jornada">
+              <button
+                type="button"
+                aria-pressed={filter === "all"}
+                onClick={() => setFilter("all")}
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${filter === "all" ? "bg-primary text-on-primary" : "text-on-surface-variant hover:text-on-surface"}`}
+              >
+                Todos ({activityMonths.length})
+              </button>
+              <button
+                type="button"
+                aria-pressed={filter === "portfolio"}
+                onClick={() => setFilter("portfolio")}
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${filter === "portfolio" ? "bg-secondary text-on-secondary" : "text-on-surface-variant hover:text-on-surface"}`}
+              >
+                Portfólio ({portfolioCount})
+              </button>
+            </div>
+          </div>
+
+          <p className="sr-only" aria-live="polite">Exibindo {visibleMonths.length} meses.</p>
+          <div className="space-y-9">
+            {years.map((year) => (
+              <div key={year} aria-labelledby={`journey-year-${year}`}>
+                <div className="flex items-center gap-4 mb-5">
+                  <h4 id={`journey-year-${year}`} className="font-code-sm text-sm text-secondary">{year}</h4>
+                  <div className="h-px flex-1 bg-outline-variant/60" aria-hidden="true" />
                 </div>
-                <div className="h-2 rounded-full bg-surface-container-high overflow-hidden" aria-hidden="true">
-                  <div className="h-full rounded-full bg-primary" style={{ width: `${item.count / maxCount * 100}%` }} />
-                </div>
+                <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {visibleMonths.filter((item) => item.year === year).map((item) => (
+                    <li
+                      key={`${item.year}-${item.month}`}
+                      className={`relative min-h-40 rounded-2xl border p-5 flex flex-col justify-between ${item.portfolio
+                        ? "border-secondary/40 bg-secondary/5"
+                        : "border-white/10 bg-surface-container/70"}`}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <span className={`font-code-sm text-xs tracking-widest ${item.portfolio ? "text-secondary" : "text-outline"}`}>
+                          {String(item.month).padStart(2, "0")} / {item.year}
+                        </span>
+                        <span className={`material-symbols-outlined text-xl ${item.portfolio ? "text-secondary" : "text-primary/70"}`} aria-hidden="true">
+                          {item.portfolio ? "code_blocks" : "commit"}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="block text-xl font-semibold text-on-surface mb-2">{MONTHS_PT[item.month - 1]}</span>
+                        <span className={`inline-flex items-center gap-2 text-xs font-code-sm ${item.portfolio ? "text-secondary" : "text-on-surface-variant"}`}>
+                          <span className={`h-1.5 w-1.5 rounded-full ${item.portfolio ? "bg-secondary" : "bg-primary"}`} aria-hidden="true" />
+                          {item.portfolio ? "Portfólio + GitHub" : "Atividade no GitHub"}
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
               </div>
             ))}
-            <p className="text-xs text-on-surface-variant text-center pt-2">
-              Contagem por data dos commits dos repositórios; inclui contribuições de outras pessoas quando houver.
-            </p>
           </div>
-        )}
 
-        <div className="text-center mt-12">
-          <a
-            href="https://diario-do-dev.web.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-panel inline-flex items-center gap-4 px-6 py-4 rounded-xl text-on-surface hover:bg-surface-container-high transition-all font-body-base"
-          >
-            <span className="material-symbols-outlined text-secondary">book</span>
-            Diário do Dev — acompanhe minha evolução
-          </a>
+          <div className="mt-10 border-t border-white/10 pt-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-xl text-xs leading-relaxed text-on-surface-variant">
+              Os meses são identificados por contribuições no perfil e commits dos repositórios. Eles indicam atividade, não horas trabalhadas. Dados conferidos em {activityUpdatedAt}.
+            </p>
+            <div className="flex flex-wrap gap-4 text-sm font-medium">
+              <a href="https://github.com/DanielFernandes-dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                Ver GitHub ↗
+              </a>
+              <a href="https://diario-do-dev.web.app/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
+                Diário do Dev ↗
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
